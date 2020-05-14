@@ -94,8 +94,8 @@ section {
     transition: ease 0.3s all;
 }
 
-.active-nav {
-    background: rgb(24, 61, 117);
+.menu__link.active {
+    background-color: rgb(24, 61, 117);
     color: #fff;
 }
 

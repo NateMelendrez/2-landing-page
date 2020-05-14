@@ -39,7 +39,6 @@ for (let i = 0; i < containerCount; i++) {
 
 function activeClassStyle () {
     const getAllSection = document.querySelectorAll('section');
-    const getNavLi = document.querySelectorAll('ul li')
     for (i = 0; i < getAllSection.length; i++) {
         if(isInViewport(getAllSection[i])) {
             getAllSection[i].classList.add('your-active-class')
@@ -63,20 +62,10 @@ function activeClassStyle () {
 
 // // Nav bar will tell which section is being viewed
 
-// // function activateNavLinks() {
-// //     const getNavLi = document.querySelectorAll('ul li')
-// //     for(i = 0; i < getNavLi.length; i++) {
-// //         if(isInViewport(getNavLi[i])) {
-// //             getNavLi[i].classList.add('active-nav')
-// //         } else {
-// //             getNavLi[i].classList.remove('active-nav')
-// //         }
-// //     }
-// // }
-
-// const getLink = document.querySelectorAll('ul li');
-// for (i = 0; i < getLink.length; i++) {
-//     getLink[i].onclick = function () {
-//         getLink[i].classList.add('acitve'); 
-//     }
-// }
+const navs = document.querySelectorAll('li');
+navs.forEach(nav => {
+    nav.addEventListener('click', function () {
+        navs.forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
