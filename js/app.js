@@ -35,3 +35,48 @@ for (let i = 0; i < containerCount; i++) {
 
  // Add class 'active' to section when near top of viewport
 
+ window.addEventListener('scroll', activeClassStyle);
+
+function activeClassStyle () {
+    const getAllSection = document.querySelectorAll('section');
+    const getNavLi = document.querySelectorAll('ul li')
+    for (i = 0; i < getAllSection.length; i++) {
+        if(isInViewport(getAllSection[i])) {
+            getAllSection[i].classList.add('your-active-class')
+        } else {
+            getAllSection[i].classList.remove('your-active-class')
+        }
+
+    }
+}
+ 
+ // get position in viewport per feedback review https://gomakethings.com/how-to-test-if-an-element-is-in-the-viewport-with-vanilla-javascript/
+ var isInViewport = function (elem) {
+    var bounding = elem.getBoundingClientRect();
+    return (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+};
+
+// // Nav bar will tell which section is being viewed
+
+// // function activateNavLinks() {
+// //     const getNavLi = document.querySelectorAll('ul li')
+// //     for(i = 0; i < getNavLi.length; i++) {
+// //         if(isInViewport(getNavLi[i])) {
+// //             getNavLi[i].classList.add('active-nav')
+// //         } else {
+// //             getNavLi[i].classList.remove('active-nav')
+// //         }
+// //     }
+// // }
+
+// const getLink = document.querySelectorAll('ul li');
+// for (i = 0; i < getLink.length; i++) {
+//     getLink[i].onclick = function () {
+//         getLink[i].classList.add('acitve'); 
+//     }
+// }
